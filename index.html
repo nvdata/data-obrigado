@@ -22,6 +22,7 @@
 
 
         <header class="bg__thanks w-100 h-100 d-flex align-items-center">
+            <img src="assets/img/Rectangle.png" alt="fundo" class="fundo">
             <div class="container">
                 <div class="row justify-content-around thanks__wrapper">
 
@@ -104,7 +105,9 @@
     </script>
 
     <script class="gsap__interaction">
-        const tl = gsap.timeline()
+        const tl = gsap.timeline({
+            paused: true,
+        })
 
         //set
         const itens = [".p__container p", ".btn__container a "]
@@ -155,11 +158,14 @@
 
 
 
-
-
-        document.addEventListener("DOMContentLoaded", function () {
+        //verifica se a imagem carregou
+        const bannerHomeImg = document.querySelector("img.fundo")
+        window.addEventListener("load", event => {
+            let isLoaded = bannerHomeImg.complete && bannerHomeImg.naturalHeight !== 0;
             document.body.classList.add("dcl")
-            tl.play()
+            setTimeout(() => {
+                tl.play()
+            }, 250);
 
         });
 
