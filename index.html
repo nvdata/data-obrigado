@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.11/lottie.min.js"
+        integrity="sha512-jbTBHn1aXqglu6As1bUWxdPYc9b1uMHtreBM30oW3HbNFDS/eO1n+f98l4qcmw2l7CAdjWSbu3wVjm9SKISOaw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+        integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="page__thanks vw-100 vh-100" id="page__thanks">
+
+
+        <header class="bg__thanks w-100 h-100 d-flex align-items-center">
+            <div class="container">
+                <div class="row justify-content-around thanks__wrapper">
+
+                    <div class="thanks__intro col-11  col-md-5  align-self-center">
+
+
+                        <div class="lottie__container"> </div>
+
+
+
+                        <div class="h1__container">
+                            <h1>Feito!</h1>
+                        </div>
+                        <div class="p__container">
+                            <p>Em breve um de nossos especialistas entrará em contato com você. Se estiver com alguma
+                                urgência e precisar de um contato mais rápido, clique no botão abaixo. </p>
+                        </div>
+                        <div class="btn__container">
+                            <a href="#" class="btn__intro">Fale agora<ion-icon class="whatsapp" name="logo-whatsapp">
+                                </ion-icon></a>
+
+                            <div class="cursor"></div>
+                        </div>
+                    </div>
+                    <div class="thanks__woman col-11 col-md-5">
+                        <img src="assets/img/womam.png" alt="womam">
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+    </main>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <!-- <script type="module" src="assets/js/main.js"></script> -->
+    <script type="module">
+        import Dom from '../assets/js/modules/constructors.js'; //selecionar elementos
+
+        const mediaQuebra = window.matchMedia('(max-width: 1024px)').matches
+        // ★ PAGES ★ 
+        const pageThanks = new Dom().el("#page__thanks");
+        if (pageThanks) { // ★ HOME 
+            new Dom().bodyClass("body__thanks");
+
+
+        }
+
+
+    </script>
+    <script>
+
+        const cursor = document.querySelector(".cursor")
+        document.addEventListener("mousemove", (e) => {
+            function add() {
+                cursor.style.left = e.pageX + "px"
+                cursor.style.top = e.pageY + "px"
+            }
+            window.requestAnimationFrame(add)
+        })
+        // window.requestAnimationFrame(add)
+
+    </script>
+
+    <script>
+        /* Shapes */
+        var svgContainer = document.querySelector(".lottie__container")
+        var animItem = bodymovin.loadAnimation({
+            wrapper: svgContainer,
+            animType: 'svg',
+            loop: false,
+            autoplay: false,
+            path: 'assets/img/lottie/7434-confetti.json'
+        });
+
+
+    </script>
+
+    <script class="gsap__interaction">
+        const tl = gsap.timeline()
+
+        //set
+        const itens = [".p__container p", ".btn__container a "]
+
+        gsap.set(itens, {
+            x: -10,
+            opacity: 0
+        })
+        gsap.set(".thanks__woman img", {
+            y: "110%",
+            scale: 0,
+        })
+        gsap.set(".h1__container h1", {
+            skewY: 5,
+            opacity: 0,
+            y: 100,
+        })
+
+        //timeline
+        tl
+            .to(".h1__container h1", {
+                opacity: 1,
+                duration: 1,
+                skewY: 0,
+                y: 0,
+                ease: "back.out(1.9)",
+
+            })
+
+            .add(
+                function () {
+                    animItem.play()
+                }
+                , "-=0.7")
+            .to(".thanks__woman img", {
+                scale: 1,
+                y: 0,
+                transformOrigin: "bottom right",
+                duration: .9
+            })
+            .to(itens, {
+                duration: .3,
+                x: 0,
+                stagger: 0.2,
+                opacity: 1,
+            }, "-=0.5")
+
+
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.body.classList.add("dcl")
+            tl.play()
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
