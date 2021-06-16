@@ -7,7 +7,9 @@
     padding-bottom: 2.5rem;
   }
 }
-
+&{
+  position: relative;
+}
 .fundo{
   object-fit: cover;
   width: 100%;
@@ -155,7 +157,11 @@
   overflow: hidden;
   @include size(100%)
 }
-
+.h1__container{
+  @include d(m){
+    padding-top: 30px;
+  }
+}
 .btn__container {
   padding-top: 10px;
 }
