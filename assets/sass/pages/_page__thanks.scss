@@ -86,6 +86,7 @@
       box-shadow .3s ease,
       transform .150s ease;
     color: $cor-preto-1;
+    align-items: center;
 
     @include d(s) {
       width: 100%;
