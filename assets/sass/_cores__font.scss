@@ -37,6 +37,8 @@ $shadow: 2px 2px 3px rgba(215, 215, 215, 0.1);
 $shadow-card: 0px 12px 24px 6px rgba(254, 83, 53, 0.04),
 0px 24px 10px 6px rgba(254, 83, 53, 0.01);
 
+
+/*
 @font-face {
     font-family: "Gotham";
     src: url("../fonts/GothamBold.ttf");
@@ -61,10 +63,13 @@ $shadow-card: 0px 12px 24px 6px rgba(254, 83, 53, 0.04),
     font-weight: 300;
 }
 
+*/
+
+
+
 //FONTES
 
-$font-gotham: "Gotham",
-sans-serif;
+$font-poppins: 'Poppins', sans-serif;
 
 
 @mixin gradiente_texto {
