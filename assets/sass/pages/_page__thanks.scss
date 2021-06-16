@@ -5,6 +5,7 @@
   @include d(s) {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+    height: 100% !important;
   }
 }
 &{
@@ -87,6 +88,7 @@
       box-shadow .3s ease,
       transform .150s ease;
     color: $cor-preto-1;
+    align-items: center;
 
     @include d(s) {
       width: 100%;
